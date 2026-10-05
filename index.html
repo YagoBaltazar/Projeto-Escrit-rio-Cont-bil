@@ -1,648 +1,399 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projeto Escritório Contábil — G1</title>
-<style>
-  :root {
-    --bg-primary: #0a0f0d;
-    --bg-secondary: #111a15;
-    --card-bg: #16221c;
-    --card-border: #23382c;
-    --accent-green: #10b981;
-    --accent-bright: #00e676;
-    --accent-dark: #047857;
-    --text-main: #ecfdf5;
-    --text-muted: #9ca3af;
-    --text-dim: #6b7280;
-    --badge-bg: rgba(16, 185, 129, 0.12);
-    --badge-border: rgba(16, 185, 129, 0.3);
-    --shadow-glow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  header {
-    background: linear-gradient(180deg, #050a07 0%, var(--bg-primary) 100%);
-    border-bottom: 1px solid var(--card-border);
-    padding: 60px 20px 50px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0,0,0,0) 70%);
-    pointer-events: none;
-  }
-
-  .header-content {
-    max-width: 850px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .badge-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--badge-bg);
-    border: 1px solid var(--badge-border);
-    color: var(--accent-bright);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  header h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #ffffff 40%, var(--accent-bright) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  header p {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    max-width: 650px;
-    margin: 0 auto;
-  }
-
-  main {
-    max-width: 950px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-
-  section {
-    background: var(--bg-secondary);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 28px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    /* Alterado de hidden para visible para que o zoom da imagem não seja cortado */
-    overflow: visible; 
-  }
-
-  section:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-  }
-
-  h2 {
-    color: var(--accent-bright);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  h2 svg {
-    width: 22px;
-    height: 22px;
-    fill: none;
-    stroke: var(--accent-bright);
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  p {
-    color: var(--text-muted);
-    font-size: 1.02rem;
-    margin-bottom: 12px;
-  }
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 10px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 16px 18px;
-    transition: all 0.2s ease;
-  }
-
-  .card:hover {
-    background: #1c2b23;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-  }
-
-  .card strong {
-    display: block;
-    color: var(--accent-bright);
-    font-size: 1rem;
-    margin-bottom: 6px;
-  }
-
-  .card span {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 8px;
-  }
-
-  .tags span {
-    background: var(--badge-bg);
-    border: 1px solid var(--badge-border);
-    color: var(--accent-bright);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.88rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .tags span:hover {
-    background: rgba(16, 185, 129, 0.25);
-    border-color: var(--accent-bright);
-  }
-
-/* --- VISUALIZAÇÕES E ZOOM AMPLIADO --- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.img-wrapper {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-  padding: 8px;
-  overflow: visible !important; /* Garante que a imagem sobressai da caixa */
-  position: relative;
-}
-
-.img-wrapper img,
-section img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-  cursor: pointer;
-  /* Transição suave e fluida */
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-  position: relative;
-  z-index: 1;
-}
-
-/* Efeito Hover com Zoom Bem Maior */
-.img-wrapper:hover img,
-section img:hover {
-  transform: scale(1.3); /* Aumenta a imagem em 30% */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(16, 185, 129, 0.5);
-  border-color: var(--accent-bright);
-  z-index: 999 !important; /* Coloca a imagem à frente de todo o conteúdo da página */
-}
-
-  /* --- BOTÕES E LINKS --- */
-  .btn-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 12px;
-  }
-
-  a.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--text-main);
-    padding: 10px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.92rem;
-    transition: all 0.25s ease;
-  }
-
-  a.btn:hover {
-    background: var(--accent-dark);
-    border-color: var(--accent-green);
-    color: #ffffff;
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
-  }
-
-  a.btn svg {
-    width: 16px;
-    height: 16px;
-    stroke: currentColor;
-    stroke-width: 2;
-  }
-
-  /* CTA Highlight Section */
-  section.cta-card {
-    background: linear-gradient(135deg, #11241a 0%, #0d1a13 100%);
-    border: 1px solid var(--accent-dark);
-    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.1);
-  }
-
-  a.btn-primary {
-    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-dark) 100%);
-    color: #ffffff;
-    border: none;
-    padding: 12px 22px;
-    font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-  }
-
-  a.btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-green) 100%);
-    color: #000000;
-    font-weight: 700;
-  }
-
-  /* --- PERGUNTAS INTERATIVAS (ACCORDION / FAQ) --- */
-  .faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .faq-item {
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    background: var(--card-bg);
-    overflow: hidden;
-    transition: border-color 0.2s ease;
-  }
-
-  .faq-item:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-  }
-
-  .faq-question {
-    width: 100%;
-    padding: 16px 20px;
-    background: transparent;
-    color: var(--text-main);
-    border: none;
-    text-align: left;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .faq-question:hover {
-    background: rgba(16, 185, 129, 0.08);
-    color: var(--accent-bright);
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-    padding: 0 20px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    border-top: 1px solid transparent;
-  }
-
-  .faq-item.active .faq-answer {
-    max-height: 300px;
-    padding: 12px 20px 18px 20px;
-    border-top-color: rgba(16, 185, 129, 0.15);
-  }
-
-  /* RODAPÉ E AUTOR */
-  .author-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--card-bg);
-    padding: 14px 18px;
-    border-radius: 8px;
-    border: 1px solid var(--card-border);
-  }
-
-  .author-avatar {
-    width: 42px;
-    height: 42px;
-    background: var(--badge-bg);
-    border: 1px solid var(--badge-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent-bright);
-    font-weight: 700;
-  }
-
-  footer {
-    text-align: center;
-    color: var(--text-dim);
-    padding: 30px 20px;
-    font-size: 0.88rem;
-    border-top: 1px solid var(--card-border);
-    margin-top: 20px;
-  }
-
-  @media (max-width: 600px) {
-    header h1 { font-size: 1.8rem; }
-    section { padding: 20px; }
-    .btn-group { flex-direction: column; }
-    a.btn { width: 100%; justify-content: center; }
-  }
-</style>
-</head>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const questions = document.querySelectorAll(".faq-question");
-
-    questions.forEach(button => {
-      button.addEventListener("click", function () {
-        const answer = this.nextElementSibling;
-        const icon = this.querySelector(".faq-icon");
-
-        // Alterna a exibição da resposta (mostrar / esconder)
-        if (answer.style.display === "block") {
-          answer.style.display = "none";
-          icon.textContent = "+";
-          icon.style.transform = "rotate(0deg)";
-        } else {
-          answer.style.display = "block";
-          icon.textContent = "−";
-          icon.style.transform = "rotate(180deg)";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicadores de Saúde Pública no Brasil (2015–2024)</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --card-hover: #334155;
+            --accent-color: #10b981;
+            --accent-hover: #059669;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
         }
-      });
-    });
-  });
-</script>
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .card h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Grid dos Indicadores */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .grid-card {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .grid-card strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        /* Listas e Tags */
+        ul {
+            padding-left: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        ul li strong {
+            color: var(--text-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tags span {
+            background: #0f172a;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Botões */
+        .btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.65rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #334155;
+        }
+
+        .btn-secondary:hover {
+            background-color: #475569;
+        }
+
+        /* Accordion FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 0.8rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question span {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 150px;
+            padding-bottom: 0.8rem;
+        }
+
+        /* Imagens */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .img-card {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .img-card img {
+            max-width: 100%;
+            border-radius: 6px;
+            height: auto;
+            display: block;
+        }
+
+        .img-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-bottom: 1rem;
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <header>
+            <h1>🏥 Indicadores de Saúde Pública no Brasil (2015–2024)</h1>
+            <p>Projeto de análise e visualização de dados com Python, Pandas, SQLAlchemy e Streamlit</p>
+        </header>
 
-<header>
-  <div class="header-content">
-    <div class="badge-tag">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      Projeto G1
+        <section class="card">
+            <h2>📌 Sobre o Projeto</h2>
+            <p>Este projeto analisa indicadores de saúde pública no Brasil entre 2015 e 2024: mortalidade, internações, vacinação, expectativa de vida, médicos, leitos hospitalares e doenças crônicas. A base é simulada e foi fornecida pelo professor.</p>
+            <p style="margin-top: 0.5rem; color: var(--text-muted);">A proposta é demonstrar um fluxo completo: preparação dos dados, análise exploratória, indicadores, visualizações, dashboard interativo e publicação online.</p>
+        </section>
+
+        <section class="card">
+            <h2>🚀 Dashboard Interativo</h2>
+            <p>O dashboard foi desenvolvido com Streamlit e permite explorar os dados com filtros, KPIs, gráficos, mapa, consultas SQL e upload de CSV.</p>
+            <div class="btn-group">
+                <a class="btn" href="https://projetoescritoriocontabil.streamlit.app/" target="_blank">Acessar Dashboard Streamlit</a>
+                <a class="btn btn-secondary" href="https://github.com/YagoBaltazar/Projeto_Escritorio_Contabil" target="_blank">Repositório GitHub</a>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>❓ Perguntas Orientadoras</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">Quais regiões apresentam maiores índices de mortalidade? <span>+</span></button>
+                <div class="faq-answer">
+                    As médias de mortalidade por região variam entre 7,9 e 8,1 óbitos por 1.000 habitantes, apresentando distribuição equilibrada entre as macrorregiões.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Houve melhoria nos indicadores de saúde ao longo do tempo? <span>+</span></button>
+                <div class="faq-answer">
+                    A evolução temporal mostra oscilações anuais contínuas nas taxas de internação e cobertura vacinal durante o período de 2015 a 2024.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Existem desigualdades regionais marcantes? <span>+</span></button>
+                <div class="faq-answer">
+                    Na base analisada, as variações regionais médias são pequenas, embora estados específicos apresentem picos pontuais de vulnerabilidade.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Quais estados possuem maior taxa de internação e criticidade? <span>+</span></button>
+                <div class="faq-answer">
+                    Mato Grosso do Sul (MS) destaca-se entre os estados com maior índice de vulnerabilidade e criticidade epidemiológica acumulada.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Existe relação entre vacinação e redução de doenças? <span>+</span></button>
+                <div class="faq-answer">
+                    A análise de dispersão avalia a correlação entre a cobertura vacinal percentual e as taxas de mortalidade e doenças crônicas.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Como evoluiu a expectativa de vida? <span>+</span></button>
+                <div class="faq-answer">
+                    A expectativa média de vida populacional oscila em torno de 73,2 a 73,8 anos no período analisado.
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>📌 Indicadores Analisados (KPIs)</h2>
+            <div class="grid">
+                <div class="grid-card"><strong>Expectativa média de vida</strong>Média, em anos, dos registros populacionais.</div>
+                <div class="grid-card"><strong>Taxa média de mortalidade</strong>Indicador epidemiológico por 1.000 hab.</div>
+                <div class="grid-card"><strong>Cobertura vacinal média</strong>Indicador preventivo percentual.</div>
+                <div class="grid-card"><strong>Estado mais vulnerável</strong>Maior índice de vulnerabilidade calculada.</div>
+                <div class="grid-card"><strong>Média de leitos</strong>Capacidade de infraestrutura hospitalar.</div>
+                <div class="grid-card"><strong>Total de internações</strong>Soma consolidada das taxas de internação.</div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>💡 Principais Resultados</h2>
+            <ul>
+                <li>As médias de mortalidade por região são muito próximas (entre 7,9 e 8,1), indicando baixa desigualdade regional média.</li>
+                <li>A expectativa média de vida oscila entre 73,2 e 73,8 anos, sem tendência linear única.</li>
+                <li>A correlação entre vacinação e mortalidade é próxima de zero (~0,02) nesta base simulada.</li>
+                <li><strong>MS</strong> destaca-se como o estado mais vulnerável pelo índice criado no projeto.</li>
+                <li>Aproximadamente <strong>24%</strong> dos registros municipais/estaduais enquadram-se no nível <strong>Crítico</strong>.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>🛠️ Tecnologias Utilizadas</h2>
+            <div class="tags">
+                <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span>
+                <span>Plotly</span><span>SQLAlchemy</span><span>SQLite</span><span>GitHub Pages</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>📊 Visualizações do Projeto</h2>
+            <div class="img-grid">
+                <div class="img-card">
+                    <img src="imagens/evolucao_mortalidade.png" alt="Evolução da mortalidade por região">
+                    <p>Evolução da mortalidade por região</p>
+                </div>
+                <div class="img-card">
+                    <img src="imagens/mortalidade_por_estado.png" alt="Mortalidade média por estado">
+                    <p>Mortalidade média por estado</p>
+                </div>
+                <div class="img-card">
+                    <img src="imagens/heatmap_mortalidade.png" alt="Heatmap epidemiológico">
+                    <p>Heatmap epidemiológico</p>
+                </div>
+                <div class="img-card">
+                    <img src="imagens/vacinacao_x_mortalidade.png" alt="Vacinação x mortalidade">
+                    <p>Vacinação x mortalidade</p>
+                </div>
+                <div class="img-card">
+                    <img src="imagens/correlacao.png" alt="Correlação entre indicadores">
+                    <p>Matriz de correlação entre indicadores</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>📂 Arquivos do Projeto</h2>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="README.md" target="_blank">Ver README</a>
+                <a class="btn btn-secondary" href="notebooks/analise_saude_publica.ipynb" target="_blank">Ver Notebook</a>
+                <a class="btn btn-secondary" href="dados/simulacao_saude_publica_brasil.csv" target="_blank">Baixar Base de Dados</a>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>👤 Autor</h2>
+            <p><strong>Yago Baltazar Ferreira</strong> — Disciplina de Linguagem de Programação</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Professor: Alexandre Neves Louzada | UniLaSalle</p>
+        </section>
+
+        <footer>
+            Projeto desenvolvido para fins educacionais — Análise e Visualização de Dados com Python
+        </footer>
     </div>
-    <h1>Painel Executivo de um Escritório de Contabilidade</h1>
-    <p>Projeto de análise e visualização de dados com Python, Pandas, SQLAlchemy e Streamlit</p>
-  </div>
-</header>
 
-<main>
-  <section>
-    <h2>
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-      Sobre o projeto
-    </h2>
-    <p>Este projeto apresenta uma análise detalhada de um escritório de contabilidade, considerando carteira de clientes, faturamento, impostos por regime tributário, honorários e inadimplência. Os dados são fictícios, preservando o sigilo contábil exigido pela profissão.</p>
-    <p>A proposta demonstra um fluxo de trabalho completo: preparação e tratamento dos dados, análise exploratória, criação de indicadores estratégicos, visualizações gráficas, dashboard interativo e publicação online.</p>
-  </section>
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
 
-<section>
-  <h2>Perguntas de negócio</h2>
-  <div class="faq-container">
-
-    <div class="faq-item">
-      <button type="button" class="faq-question">
-        Qual a carga tributária de cada regime (Simples, Presumido e Real)?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        O Simples Nacional apresenta menor alíquota para faturamentos iniciais, enquanto o Lucro Presumido e Real variam conforme a margem de lucro e setor operacional das empresas ativas.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button type="button" class="faq-question">
-        Como o faturamento e os impostos evoluem ao longo do tempo?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        A evolução mensal demonstra sazonalidade em trimestres específicos, com crescimento proporcional da arrecadação de tributos em relação à receita bruta total.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button type="button" class="faq-question">
-        Quais estados e setores concentram mais receita?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        A maior concentração de receita encontra-se no setor de Serviços e Comércio, prioritariamente localizados nos estados do Sudeste e Sul.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button type="button" class="faq-question">
-        Qual a inadimplência de honorários?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        A taxa média de inadimplência dos honorários contábeis é calculada mensalmente, permitindo identificar perfis de clientes com maior atraso de pagamento.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button type="button" class="faq-question">
-        Qual regime tributário compensa mais para cada empresa?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Através do simulador interativo no dashboard, é possível cruzar faturamento e despesas para simular e escolher o regime tributário de menor custo fiscal.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-  <section>
-    <h2>
-      <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-      Indicadores analisados
-    </h2>
-    <div class="grid">
-      <div class="card">
-        <strong>Faturamento Apurado</strong>
-        <span>Soma total do faturamento de toda a carteira de clientes.</span>
-      </div>
-      <div class="card">
-        <strong>Impostos Apurados</strong>
-        <span>Montante total de impostos calculados no período.</span>
-      </div>
-      <div class="card">
-        <strong>Carga Tributária</strong>
-        <span>Proporção do imposto em relação ao faturamento bruto.</span>
-      </div>
-      <div class="card">
-        <strong>Honorários</strong>
-        <span>Receita operacional direta gerada pelo escritório.</span>
-      </div>
-      <div class="card">
-        <strong>Inadimplência</strong>
-        <span>Percentual e taxa de honorários contábeis não pagos.</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>
-      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-      Tecnologias utilizadas
-    </h2>
-    <div class="tags">
-      <span>Python</span>
-      <span>Pandas</span>
-      <span>Matplotlib</span>
-      <span>Seaborn</span>
-      <span>Streamlit</span>
-      <span>Plotly</span>
-      <span>SQLAlchemy</span>
-      <span>SQLite</span>
-      <span>Requests (BrasilAPI)</span>
-      <span>GitHub Pages</span>
-    </div>
-  </section>
-
-  <section>
-    <h2>
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      Algumas visualizações
-    </h2>
-    <div class="gallery">
-      <div class="img-wrapper">
-        <img src="imagens/evolucao_mensal.png" alt="Evolução mensal de faturamento e impostos" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16221c/10b981?text=Evolu%C3%A7%C3%A3o+Mensal';">
-      </div>
-      <div class="img-wrapper">
-        <img src="imagens/carga_por_regime.png" alt="Carga tributária por regime" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16221c/10b981?text=Carga+por+Regime';">
-      </div>
-      <div class="img-wrapper">
-        <img src="imagens/correlacao.png" alt="Correlação entre variáveis" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16221c/10b981?text=Matriz+de+Correla%C3%A7%C3%A3o';">
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>
-      <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-      Arquivos do projeto
-    </h2>
-    <div class="btn-group">
-      <a class="btn" href="README.md" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Ver README
-      </a>
-      <a class="btn" href="notebooks/analise_escritorio_contabil.ipynb" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver Notebook
-      </a>
-      <a class="btn" href="dados/apuracoes.csv" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Baixar Base de Dados
-      </a>
-      <a class="btn" href="https://github.com/YagoBaltazar/Projeto_Escritorio_Contabil" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        Repositório GitHub
-      </a>
-    </div>
-  </section>
-
-  <section class="cta-card">
-    <h2>
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-      Dashboard Interativo
-    </h2>
-    <p>O dashboard foi desenvolvido com <strong>Streamlit</strong> e possui filtros dinâmicos, KPIs em tempo real, gráficos de alta performance, mapa interativo, simulador tributário, consulta de CNPJ via API e suporte a upload de novos dados via CSV.</p>
-    <div style="margin-top: 16px;">
-      <a class="btn btn-primary" href="https://projetoescritoriocontabil.streamlit.app/" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Acessar Dashboard Streamlit
-      </a>
-    </div>
-  </section>
-
-  <section>
-    <h2>
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Autor do Projeto
-    </h2>
-    <div class="author-box">
-      <div class="author-avatar">YB</div>
-      <div>
-        <strong style="color: var(--text-main); font-size: 1rem; display: block;">Yago Baltazar Ferreira</strong>
-        <span style="color: var(--text-muted); font-size: 0.9rem;">Disciplina de Linguagem de Programação — Prof. Alexandre Neves Louzada</span>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  Projeto desenvolvido para fins educacionais — Análise e Visualização de Dados com Python
-</footer>
-
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const questions = document.querySelectorAll(".faq-question");
-
-    questions.forEach(button => {
-      button.addEventListener("click", function () {
-        const item = this.parentElement;
-        item.classList.toggle("active");
-      });
-    });
-  });
-</script>
