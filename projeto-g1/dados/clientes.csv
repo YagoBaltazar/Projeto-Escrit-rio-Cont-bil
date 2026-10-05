@@ -1,0 +1,61 @@
+id,cnpj,razao_social,uf,setor,porte,regime,honorario_mensal,data_entrada
+1,20.597.777/0001-51,Sul Indústria e Embalagens Ltda,RJ,Indústria,EPP,Simples Nacional,1334.3,2024-07-08
+2,42.058.088/0001-26,Sol Soluções em Tecnologia Ltda,SP,Tecnologia,EPP,Simples Nacional,1680.57,2020-02-01
+3,34.405.176/0001-97,Top Soluções em Tecnologia Ltda,ES,Tecnologia,EPP,Simples Nacional,733.33,2021-05-29
+4,64.325.694/0001-18,Mar Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,1682.41,2023-02-20
+5,26.618.180/0001-77,Vale Soluções em Tecnologia Ltda,MG,Tecnologia,EPP,Simples Nacional,942.84,2024-02-16
+6,21.466.485/0001-07,Ponto Indústria e Embalagens Ltda,SP,Indústria,ME,Simples Nacional,673.91,2022-10-11
+7,92.249.802/0001-80,Brasil Serviços Empresariais Ltda,RJ,Serviços,EPP,Simples Nacional,758.54,2024-08-15
+8,44.483.130/0001-10,Mar Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,963.02,2024-01-26
+9,44.132.366/0001-63,Beta Comércio de Produtos Ltda,SP,Comércio,EPP,Simples Nacional,1143.27,2025-04-22
+10,79.272.774/0001-72,Beta Soluções em Tecnologia Ltda,ES,Tecnologia,ME,Simples Nacional,611.7,2019-07-10
+11,51.480.747/0001-64,Ponto Serviços Empresariais Ltda,RJ,Serviços,EPP,Simples Nacional,1114.41,2021-01-10
+12,14.136.161/0001-15,Orion Serviços Empresariais Ltda,RJ,Serviços,EPP,Simples Nacional,973.28,2024-03-19
+13,19.444.700/0001-24,Sul Serviços Empresariais Ltda,RJ,Serviços,EPP,Simples Nacional,1247.57,2023-05-30
+14,55.842.038/0001-08,Delta Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,1018.97,2022-07-26
+15,97.316.992/0001-20,Real Comércio de Produtos Ltda,SP,Comércio,EPP,Lucro Presumido,1039.68,2019-12-06
+16,62.659.299/0001-11,Alfa Soluções em Tecnologia Ltda,MG,Tecnologia,ME,Lucro Real,830.76,2022-07-03
+17,28.154.307/0001-36,Nova Soluções em Tecnologia Ltda,ES,Tecnologia,EPP,Lucro Presumido,2896.62,2021-09-11
+18,01.088.171/0001-35,Forte Indústria e Embalagens Ltda,RJ,Indústria,ME,Simples Nacional,552.75,2023-09-24
+19,41.901.221/0001-06,Delta Comércio de Produtos Ltda,MG,Comércio,EPP,Simples Nacional,743.82,2025-05-15
+20,07.078.141/0001-59,Nova Serviços Empresariais Ltda,SP,Serviços,ME,Lucro Presumido,706.64,2019-07-14
+21,99.405.516/0001-81,Delta Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,1924.18,2023-10-02
+22,44.678.061/0001-28,Sol Soluções em Tecnologia Ltda,SP,Tecnologia,ME,Lucro Presumido,713.82,2020-08-24
+23,94.169.824/0001-52,Atlântica Serviços Empresariais Ltda,SP,Serviços,ME,Simples Nacional,703.55,2020-10-06
+24,31.183.391/0001-99,Orion Indústria e Embalagens Ltda,RJ,Indústria,ME,Simples Nacional,561.52,2022-12-07
+25,11.804.556/0001-83,Central Comércio de Produtos Ltda,RJ,Comércio,EPP,Simples Nacional,796.32,2024-06-10
+26,82.226.594/0001-20,Nova Soluções em Tecnologia Ltda,ES,Tecnologia,EPP,Simples Nacional,1045.59,2019-01-17
+27,60.888.929/0001-38,Sol Comércio de Produtos Ltda,MG,Comércio,EPP,Lucro Presumido,1238.43,2022-10-22
+28,98.847.366/0001-22,Delta Indústria e Embalagens Ltda,RJ,Indústria,EPP,Simples Nacional,791.42,2019-05-27
+29,73.431.622/0001-79,Ágil Serviços Empresariais Ltda,RJ,Serviços,ME,Simples Nacional,508.3,2023-05-30
+30,28.557.602/0001-17,Atlântica Comércio de Produtos Ltda,SP,Comércio,EPP,Simples Nacional,2529.21,2019-03-26
+31,67.505.971/0001-99,Lume Soluções em Tecnologia Ltda,RJ,Tecnologia,EPP,Simples Nacional,1728.25,2020-02-11
+32,75.005.611/0001-15,Real Indústria e Embalagens Ltda,MG,Indústria,ME,Simples Nacional,589.99,2019-01-19
+33,25.198.171/0001-70,Vale Serviços Empresariais Ltda,MG,Serviços,EPP,Simples Nacional,1101.96,2022-03-17
+34,87.627.353/0001-31,Delta Indústria e Embalagens Ltda,SP,Indústria,EPP,Lucro Presumido,2042.61,2025-04-26
+35,99.376.413/0001-69,Mar Serviços Empresariais Ltda,RJ,Serviços,EPP,Simples Nacional,2116.46,2019-01-12
+36,45.065.004/0001-78,Brasil Comércio de Produtos Ltda,ES,Comércio,EPP,Simples Nacional,808.26,2021-11-01
+37,51.390.862/0001-78,Delta Serviços Empresariais Ltda,RJ,Serviços,EPP,Lucro Presumido,1445.1,2019-04-14
+38,80.224.187/0001-81,Ágil Serviços Empresariais Ltda,SP,Serviços,EPP,Lucro Presumido,1672.6,2019-02-04
+39,98.922.820/0001-68,Ágil Comércio de Produtos Ltda,RJ,Comércio,EPP,Simples Nacional,1398.57,2025-05-12
+40,65.575.608/0001-41,Mar Serviços Empresariais Ltda,MG,Serviços,EPP,Simples Nacional,860.94,2024-05-05
+41,50.060.028/0001-47,Orion Comércio de Produtos Ltda,MG,Comércio,EPP,Simples Nacional,2489.2,2021-09-14
+42,26.854.129/0001-53,Real Comércio de Produtos Ltda,BA,Comércio,ME,Lucro Presumido,776.59,2021-10-01
+43,64.941.191/0001-92,Central Serviços Empresariais Ltda,ES,Serviços,EPP,Simples Nacional,1083.83,2019-08-13
+44,82.956.390/0001-24,Sul Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,1044.16,2022-02-19
+45,56.632.735/0001-14,Ponto Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,739.91,2022-06-25
+46,85.752.723/0001-58,Sul Serviços Empresariais Ltda,MG,Serviços,EPP,Lucro Presumido,1124.69,2021-07-10
+47,53.417.307/0001-90,Lume Comércio de Produtos Ltda,MG,Comércio,EPP,Simples Nacional,1074.0,2021-11-14
+48,53.590.947/0001-43,Vale Serviços Empresariais Ltda,RJ,Serviços,ME,Simples Nacional,653.68,2024-01-24
+49,75.417.148/0001-99,Real Serviços Empresariais Ltda,SP,Serviços,EPP,Simples Nacional,854.06,2025-04-18
+50,30.870.444/0001-91,Orion Soluções em Tecnologia Ltda,RJ,Tecnologia,EPP,Simples Nacional,2010.09,2021-01-05
+51,95.740.022/0001-88,Ponto Comércio de Produtos Ltda,RJ,Comércio,EPP,Simples Nacional,1249.24,2024-08-11
+52,75.839.834/0001-57,Forte Serviços Empresariais Ltda,MG,Serviços,EPP,Simples Nacional,985.42,2023-07-12
+53,54.855.103/0001-99,Ponto Soluções em Tecnologia Ltda,SP,Tecnologia,ME,Simples Nacional,586.46,2023-02-18
+54,64.431.550/0001-42,Mar Comércio de Produtos Ltda,RJ,Comércio,EPP,Lucro Presumido,983.67,2020-02-13
+55,69.572.967/0001-48,Delta Soluções em Tecnologia Ltda,SP,Tecnologia,EPP,Lucro Presumido,2303.96,2019-06-28
+56,19.128.797/0001-63,Delta Serviços Empresariais Ltda,SP,Serviços,EPP,Lucro Real,1545.19,2019-01-12
+57,39.240.760/0001-25,Lume Indústria e Embalagens Ltda,SP,Indústria,EPP,Simples Nacional,1384.48,2022-07-20
+58,31.967.767/0001-08,Mar Soluções em Tecnologia Ltda,RJ,Tecnologia,ME,Simples Nacional,490.2,2023-11-11
+59,40.952.650/0001-74,Forte Comércio de Produtos Ltda,RJ,Comércio,EPP,Lucro Presumido,2648.92,2023-08-07
+60,92.754.312/0001-58,Orion Comércio de Produtos Ltda,ES,Comércio,EPP,Lucro Presumido,2962.34,2024-09-10
