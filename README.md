@@ -38,5 +38,10 @@ python gerar_dados.py      # opcional: o app cria o banco sozinho na primeira ex
 streamlit run app.py
 ```
 
+## Publicação
+- Código-fonte: repositório no GitHub
+- Página do projeto: GitHub Pages (Settings > Pages > branch main, pasta root)
+- Dashboard: Streamlit Community Cloud (arquivo principal `app.py`)
+
 ## Aviso
 Os cálculos tributários são **simplificados e didáticos**, não substituem o trabalho de um contador.
